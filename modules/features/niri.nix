@@ -1,8 +1,25 @@
 { self, inputs, ... }: {
-  flake.nixosModules.niri = { pkgs, lib, ... }: {
+  flake.nixosModules.niri = { pkgs, lib, ... }:
+  let
+    myNiri = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
+  in
+  {
     programs.niri = {
       enable = true;
-      package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
+      package = myNiri;
+    };
+
+    services = {
+      displayManager.sessionPackages = [ myNiri ];
+      gnome.gnome-keyring.enable = true;
+    };
+
+    systemd.packages = [ myNiri ];
+
+    xdg.portal = {
+      enable = true;
+      configPackages = [ myNiri ];
+      extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
     };
   };
 
@@ -25,6 +42,12 @@
           "Mod+Q".close-window = null;
           "Mod+D".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
         };
+
+	extraConfig = ''
+          debug {
+	    honor-xdg-activation-with-invalid-serial
+	  }
+	'';
       };
     };
   };

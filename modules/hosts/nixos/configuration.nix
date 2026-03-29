@@ -11,13 +11,15 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      self.nixosModules.nixosHardware
+      self.nixosModules.git
       self.nixosModules.niri
+      self.nixosModules.nixosHardware
+      self.nixosModules.vmware
     ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
   # Use latest kernel.
@@ -109,12 +111,41 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    brightnessctl
+    cliphist
+    coreutils
+    evolution-data-server
+    fastfetch
     firefox
+    fzf
     ghostty
     git
+    gnome-keyring
+    htop
+    imagemagick
+    jq
+    #kdePackages.xdg-desktop-portal-kde
+    mpv
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    nixd
+    nixfmt
+    nixfmt-tree
+    #ns
+    open-vm-tools
+    openssh
+    power-profiles-daemon
+    python3
+    ripgrep
+    rsync
+    tokei
+    tree
+    util-linux
+    wget
     wlsunset
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-gnome
+    zsh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
