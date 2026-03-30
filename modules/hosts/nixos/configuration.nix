@@ -152,6 +152,7 @@
     tokei
     tree
     util-linux
+    wev
     wget
     wlsunset
     xdg-desktop-portal
