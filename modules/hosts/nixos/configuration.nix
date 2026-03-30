@@ -89,7 +89,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account.
   users.users.rick = {
     isNormalUser = true;
     description = "Rick";
@@ -99,6 +99,17 @@
     #  thunderbird
     ];
   };
+
+    #shell = pkgs.zsh;
+    #openssh.authorizedKeys.keys = [ dot.sshKey ];
+
+  #home-manager = {
+  #  useGlobalPkgs = true;
+  #  useUserPackages = true;
+  #  #extraSpecialArgs = { inherit inputs dot cwd; };
+  #  #users.root = import ./root.nix;
+  #  #users.rick = import ./home.nix;
+  #};
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -126,6 +137,7 @@
     jq
     #kdePackages.xdg-desktop-portal-kde
     mpv
+    nerd-fonts.noto
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     nixd
     nixfmt

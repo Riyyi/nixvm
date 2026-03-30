@@ -1,53 +1,62 @@
 { self, inputs, ... }: {
   flake.nixosModules.niri = { pkgs, lib, ... }:
   let
-    myNiri = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
+    niri = self.packages.${pkgs.stdenv.hostPlatform.system}.niri;
   in
   {
     programs.niri = {
       enable = true;
-      package = myNiri;
+      package = niri;
     };
 
     services = {
-      displayManager.sessionPackages = [ myNiri ];
+      displayManager.sessionPackages = [ niri ];
       gnome.gnome-keyring.enable = true;
     };
 
-    systemd.packages = [ myNiri ];
+    systemd.packages = [ niri ];
 
     xdg.portal = {
       enable = true;
-      configPackages = [ myNiri ];
+      configPackages = [ niri ];
       extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
     };
   };
 
-  perSystem = { pkgs, lib, self', ... }: {
-    packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
+  perSystem = { pkgs, lib, self', ... }:
+  let
+    noctalia = lib.getExe self'.packages.noctalia-shell;
+  in
+  {
+    packages.niri = inputs.wrapper-modules.wrappers.niri.wrap {
       inherit pkgs;
       settings = {
         spawn-at-startup = [
-          (lib.getExe self'.packages.myNoctalia)
+          noctalia
         ];
+
+	prefer-no-csd = null;
 
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
-        input.keyboard.xkb.layout = "us";
+        layout.gaps = 16;
 
-        layout.gaps = 5;
+        input = {
+	  focus-follows-mouse = null;
+          keyboard.xkb.layout = "us";
+	};
 
         binds = {
           "Mod+Return".spawn-sh = lib.getExe pkgs.ghostty;
           "Mod+Q".close-window = null;
-          "Mod+D".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+          "Mod+D".spawn-sh = "${noctalia} ipc call launcher toggle";
+
+          "Mod+F".maximize-column = null;
+          "Mod+G".fullscreen-window = null;
+          "Mod+Space".toggle-window-floating = null;
         };
 
-	extraConfig = ''
-          debug {
-	    honor-xdg-activation-with-invalid-serial
-	  }
-	'';
+	debug.honor-xdg-activation-with-invalid-serial = null; # recommended by Noctalia
       };
     };
   };
