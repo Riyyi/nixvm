@@ -35,6 +35,10 @@
           noctalia
         ];
 
+environment = {
+  #QT_QPA_PLATFORMTHEME = "qt6ct";
+};
+
         prefer-no-csd = null;
 
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;

@@ -595,6 +595,18 @@
         {
           "enabled": true,
           "id": "ghostty"
+        },
+        {
+          "enabled": true,
+          "id": "gtk"
+        },
+        {
+          "enabled": true,
+          "id": "qt"
+        },
+        {
+          "enabled": true,
+          "id": "kcolorscheme"
         }
       ],
       "enableUserTheming": false
@@ -651,7 +663,8 @@
     "openedPanel": "",
     "lockScreenActive": false,
     "wallpapers": {
-      "Virtual-1": "/home/rick/Pictures/Wallpapers/wallpaper.png"
+      "Virtual-1": "/home/rick/Pictures/Wallpapers/wallpaper.png",
+      "Virtual-2": "/home/rick/Pictures/Wallpapers/wallpaper.png"
     },
     "desktopWidgetsEditMode": false,
     "display": {
