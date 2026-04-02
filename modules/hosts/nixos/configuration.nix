@@ -15,6 +15,7 @@
       self.nixosModules.niri
       self.nixosModules.nixosHardware
       self.nixosModules.vmware
+      self.nixosModules.zsh
     ];
 
   # Bootloader.
@@ -98,6 +99,7 @@
       kdePackages.kate
     #  thunderbird
     ];
+    shell = pkgs.zsh;
   };
 
     #shell = pkgs.zsh;
@@ -117,7 +119,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
