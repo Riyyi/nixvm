@@ -30,6 +30,9 @@
   {
     packages.niri = inputs.wrapper-modules.wrappers.niri.wrap {
       inherit pkgs;
+
+      v2-settings = true;
+
       settings = {
         spawn-at-startup = [
           noctalia
@@ -39,15 +42,15 @@ environment = {
   #QT_QPA_PLATFORMTHEME = "qt6ct";
 };
 
-        prefer-no-csd = null;
+        prefer-no-csd = _: {};
 
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
         layout.gaps = 16;
 
         input = {
-          warp-mouse-to-focus = null;
-          focus-follows-mouse = null;
+          warp-mouse-to-focus = _: {};
+          focus-follows-mouse = _: {};
           keyboard.xkb.layout = "us";
         };
 
@@ -69,58 +72,58 @@ environment = {
 
 
           # Close niri
-          "Mod+Shift+M".quit = null;
+          "Mod+Shift+M".quit = _: {};
 
           # Show hotkeys
-          "Mod+Shift+slash".show-hotkey-overlay= null;
+          "Mod+Shift+slash".show-hotkey-overlay= _: {};
 
           # Show overview
-          "Mod+O".toggle-overview = null;
+          "Mod+O".toggle-overview = _: {};
 
           # Printscreen
-          "Print".screenshot = null;
-          "Ctrl+Print".screenshot-screen = null;
-          "Alt+Print".screenshot-window = null;
+          "Print".screenshot = _: {};
+          "Ctrl+Print".screenshot-screen = _: {};
+          "Alt+Print".screenshot-window = _: {};
 
 
           ##--- Column ---##
 
 
-          "Mod+Q".close-window = null;
+          "Mod+Q".close-window = _: {};
 
 
           #-- State/flags --#
 
           # Maximize column
-          "Mod+F".maximize-window-to-edges = null;
+          "Mod+F".maximize-window-to-edges = _: {};
 
           # Toggle fullscreen mode
-          "Mod+G".fullscreen-window = null;
+          "Mod+G".fullscreen-window = _: {};
 
           # Toggle tiled/floating
-          "Mod+Space".toggle-window-floating = null;
+          "Mod+Space".toggle-window-floating = _: {};
 
           # Cycle between column width presets, 1/3, 1/2 and 2/3 of the output
-          "Mod+R".switch-preset-column-width = null;
+          "Mod+R".switch-preset-column-width = _: {};
 
           # Toggle tabbed column mode
-          "Mod+W".toggle-column-tabbed-display = null;
+          "Mod+W".toggle-column-tabbed-display = _: {};
 
           #-- Focus --#
 
           # Focus window in direction
-          "Mod+H".focus-column-left = null;
-          "Mod+L".focus-column-right = null;
-          "Mod+K".focus-window-up = null;
-          "Mod+J".focus-window-down = null;
-          "Mod+Left".focus-column-left = null;
-          "Mod+Right".focus-column-right = null;
-          "Mod+Up".focus-window-up = null;
-          "Mod+Down".focus-window-down = null;
+          "Mod+H".focus-column-left = _: {};
+          "Mod+L".focus-column-right = _: {};
+          "Mod+K".focus-window-up = _: {};
+          "Mod+J".focus-window-down = _: {};
+          "Mod+Left".focus-column-left = _: {};
+          "Mod+Right".focus-column-right = _: {};
+          "Mod+Up".focus-window-up = _: {};
+          "Mod+Down".focus-window-down = _: {};
 
           # Focus previous/next column
-          "Mod+WheelScrollUp".focus-column-left = null;
-          "Mod+WheelScrollDown".focus-column-right = null;
+          "Mod+WheelScrollUp".focus-column-left = _: {};
+          "Mod+WheelScrollDown".focus-column-right = _: {};
 
           # Focus workspace
           "Mod+1".focus-workspace = 1;
@@ -135,32 +138,32 @@ environment = {
           "Mod+0".focus-workspace = 10;
 
           # Focus previous/next workspace
-          "Mod+minus".focus-workspace-up = null;
-          "Mod+equal".focus-workspace-down = null;
-          "Mod+Shift+WheelScrollUp".focus-workspace-up = null;
-          "Mod+Shift+WheelScrollDown".focus-workspace-down = null;
+          "Mod+minus".focus-workspace-up = _: {};
+          "Mod+equal".focus-workspace-down = _: {};
+          "Mod+Shift+WheelScrollUp".focus-workspace-up = _: {};
+          "Mod+Shift+WheelScrollDown".focus-workspace-down = _: {};
 
           # Focus last workspace
-          "Mod+grave".focus-workspace-previous = null;
+          "Mod+grave".focus-workspace-previous = _: {};
 
           # Toggle focus floating/tiling
-          "Mod+Shift+Space".switch-focus-between-floating-and-tiling = null;
+          "Mod+Shift+Space".switch-focus-between-floating-and-tiling = _: {};
 
           # Focus previous/next monitor
-          "Mod+bracketleft".focus-monitor-left = null;
-          "Mod+bracketright".focus-monitor-right = null;
+          "Mod+bracketleft".focus-monitor-left = _: {};
+          "Mod+bracketright".focus-monitor-right = _: {};
 
           #-- Move --#
 
           # Move window in direction
-          "Mod+Shift+H".move-column-left = null;
-          "Mod+Shift+L".move-column-right = null;
-          "Mod+Shift+K".move-window-up = null;
-          "Mod+Shift+J".move-window-down = null;
-          "Mod+Shift+Left".move-column-left = null;
-          "Mod+Shift+Right".move-column-right = null;
-          "Mod+Shift+Up".move-window-up = null;
-          "Mod+Shift+Down".move-window-down = null;
+          "Mod+Shift+H".move-column-left = _: {};
+          "Mod+Shift+L".move-column-right = _: {};
+          "Mod+Shift+K".move-window-up = _: {};
+          "Mod+Shift+J".move-window-down = _: {};
+          "Mod+Shift+Left".move-column-left = _: {};
+          "Mod+Shift+Right".move-column-right = _: {};
+          "Mod+Shift+Up".move-window-up = _: {};
+          "Mod+Shift+Down".move-window-down = _: {};
 
           # Send column to workspace
           "Mod+Shift+1".move-column-to-workspace = 1;
@@ -175,18 +178,18 @@ environment = {
           "Mod+Shift+0".move-column-to-workspace = 10;
 
           # Move column to previous/next workspace
-          "Mod+Shift+minus".move-column-to-workspace-up = null;
-          "Mod+Shift+equal".move-column-to-workspace-down = null;
+          "Mod+Shift+minus".move-column-to-workspace-up = _: {};
+          "Mod+Shift+equal".move-column-to-workspace-down = _: {};
 
           # Move column to previous/next monitor
-          "Mod+Shift+bracketleft".move-column-to-monitor-left = null;
-          "Mod+Shift+bracketright".move-column-to-monitor-right = null;
+          "Mod+Shift+bracketleft".move-column-to-monitor-left = _: {};
+          "Mod+Shift+bracketright".move-column-to-monitor-right = _: {};
 
           # Move window in and out of a column
-          "Mod+Shift+Alt+H".consume-or-expel-window-left = null;
-          "Mod+Shift+Alt+L".consume-or-expel-window-right = null;
-          "Mod+Shift+Alt+Left".consume-or-expel-window-left = null;
-          "Mod+Shift+Alt+Right".consume-or-expel-window-right = null;
+          "Mod+Shift+Alt+H".consume-or-expel-window-left = _: {};
+          "Mod+Shift+Alt+L".consume-or-expel-window-right = _: {};
+          "Mod+Shift+Alt+Left".consume-or-expel-window-left = _: {};
+          "Mod+Shift+Alt+Right".consume-or-expel-window-right = _: {};
 
           # Move floating window
           #TODO
@@ -204,11 +207,11 @@ environment = {
           "Mod+Alt+Down".set-window-height = "-5%";
 
           # Resize window to take up the available width
-          "Mod+Alt+F".expand-column-to-available-width = null;
+          "Mod+Alt+F".expand-column-to-available-width = _: {};
 
         };
 
-        debug.honor-xdg-activation-with-invalid-serial = null; # recommended by Noctalia
+        debug.honor-xdg-activation-with-invalid-serial = _: {}; # recommended by Noctalia
       };
     };
   };
