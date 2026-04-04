@@ -1,6 +1,12 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.nixosConfiguration = 
+  flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+    modules = [
+      self.nixosModules.hostNixos
+    ];
+  };
+
+  flake.nixosModules.hostNixos =
 
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
@@ -11,6 +17,9 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      self.nixosModules.base
+      self.nixosModules.general
+
       self.nixosModules.git
       self.nixosModules.niri
       self.nixosModules.nixosHardware
@@ -89,29 +98,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account.
-  users.users.rick = {
-    isNormalUser = true;
-    description = "Rick";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
-    shell = pkgs.zsh;
-  };
-
-    #shell = pkgs.zsh;
-    #openssh.authorizedKeys.keys = [ dot.sshKey ];
-
-  #home-manager = {
-  #  useGlobalPkgs = true;
-  #  useUserPackages = true;
-  #  #extraSpecialArgs = { inherit inputs dot cwd; };
-  #  #users.root = import ./root.nix;
-  #  #users.rick = import ./home.nix;
-  #};
 
   # Install firefox.
   programs.firefox.enable = true;
