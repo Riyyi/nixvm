@@ -1,15 +1,17 @@
 {
-  flake.nixosModules.base = { config, lib, ... }: {
-    options.preferences = {
-      user.name = lib.mkOption {
-        type = lib.types.str;
-        default = "rick";
-      };
+  flake.nixosModules.base =
+    { config, lib, ... }:
+    {
+      options.preferences = {
+        user.name = lib.mkOption {
+          type = lib.types.str;
+          default = "rick";
+        };
 
-      user.home = lib.mkOption {
-        type = lib.types.str;
-        default = "/home/${config.preferences.user.name}";
+        user.home = lib.mkOption {
+          type = lib.types.str;
+          default = "/home/${config.preferences.user.name}";
+        };
       };
     };
-  };
 }

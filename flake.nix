@@ -17,7 +17,8 @@
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     let
       inherit (inputs.nixpkgs) lib;
       import-tree =
