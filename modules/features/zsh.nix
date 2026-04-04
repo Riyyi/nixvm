@@ -1,15 +1,13 @@
 {
-  self,
   inputs,
-  rootPath,
+  self,
   ...
 }:
 {
   flake.nixosModules.zsh =
     {
-      pkgs,
       lib,
-      config,
+      pkgs,
       ...
     }:
     let
@@ -43,17 +41,16 @@
   perSystem =
     {
       pkgs,
-      lib,
       system,
       ...
     }:
     let
-      switch-nixos = "sudo nixos-rebuild switch --sudo --flake ${rootPath}#$HOST";
-      update-nixos = "sudo nix flake update --flake ${rootPath} && switch";
+      switch-nixos = "sudo nixos-rebuild switch --sudo --flake .#$HOST";
+      update-nixos = "sudo nix flake update --flake . && switch";
       clean-nixos = "sudo nix-env --delete-generations +5 --profile /nix/var/nix/profiles/system && nix-collect-garbage && nix-store --optimise && sudo nixos-rebuild boot";
 
-      switch-darwin = "sudo darwin-rebuild switch --flake ${rootPath}#$HOST";
-      update-darwin = "sudo nix flake update --flake ${rootPath} && switch";
+      switch-darwin = "sudo darwin-rebuild switch --flake .#$HOST";
+      update-darwin = "sudo nix flake update --flake . && switch";
       clean-darwin = "sudo nix-env --delete-generations +5 --profile /nix/var/nix/profiles/system && sudo nix-collect-garbage && sudo nix-store --optimise --ignore-failures && switch";
     in
     {

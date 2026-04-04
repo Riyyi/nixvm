@@ -1,7 +1,10 @@
 { self, inputs, ... }:
 {
   flake.nixosModules.niri =
-    { pkgs, lib, ... }:
+    {
+      pkgs,
+      ...
+    }:
     let
       niri = self.packages.${pkgs.stdenv.hostPlatform.system}.niri;
     in

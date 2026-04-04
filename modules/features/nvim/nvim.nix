@@ -4,6 +4,7 @@
     let
       user = config.preferences.user.name;
       home = config.preferences.user.home;
+      dotfiles = config.preferences.path.dotfiles;
 
       files = [
         "init.lua"
@@ -60,7 +61,7 @@
 
       # lazy-lock.json wont be linked from Nix store, so it remains writable
       system.activationScripts.nvim = ''
-        ln -sf ${home}/nixvm/modules/features/nvim/dotfiles/lazy-lock.json \
+        ln -sf ${dotfiles}/modules/features/nvim/dotfiles/lazy-lock.json \
               "${home}/.config/nvim/lazy-lock.json"
       '';
 
