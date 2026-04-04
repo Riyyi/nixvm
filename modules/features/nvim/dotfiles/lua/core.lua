@@ -1,0 +1,6 @@
+require("core.leader-key")
+require("core.config")
+require("core.buffers")
+require("core.autocommands")
+require("core.globals")
+require("core.filetypes")

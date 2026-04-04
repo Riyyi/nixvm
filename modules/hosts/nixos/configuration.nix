@@ -23,6 +23,7 @@
       self.nixosModules.git
       self.nixosModules.niri
       self.nixosModules.nixosHardware
+      self.nixosModules.nvim
       self.nixosModules.vmware
       self.nixosModules.zsh
     ];
@@ -117,7 +118,6 @@
     evolution-data-server
     fastfetch
     firefox
-    fzf
     ghostty
     git
     gnome-keyring
@@ -129,7 +129,7 @@
     libsForQt5.qt5ct
     mpv
     nerd-fonts.noto
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neovim
     nixd
     nixfmt
     nixfmt-tree

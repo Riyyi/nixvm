@@ -10,7 +10,7 @@
       isNormalUser = true;
       description = "${config.preferences.user.name}'s account";
       extraGroups = [ "networkmanager" "wheel" ];
-      shell = self.packages.${pkgs.system}.zsh;
+      shell = self.packages.${pkgs.stdenv.hostPlatform.system}.zsh;
     };
   };
 }

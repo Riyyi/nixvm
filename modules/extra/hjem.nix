@@ -3,6 +3,7 @@
   flake.nixosModules.hjem = { config, ... }:
   let
     user = config.preferences.user.name;
+    home = config.preferences.user.home;
   in
   {
     imports = [
@@ -13,7 +14,7 @@
       hjem = {
         users."${user}" = {
           enable = true;
-          directory = "/home/${user}";
+          directory = home;
           user = user;
         };
 
