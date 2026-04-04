@@ -33,6 +33,11 @@ M.add_buffer = function()
 	local buffer_name = get_buffer_name()
 	if not buffer_name then return end
 
+	-- Avoid interfering with directory navigation
+	if vim.bo.filetype == "netrw" then
+		return
+	end
+
 	-- Evaluate group
 	local eval_group = function(config_group)
 		if not config_group then return M.buffer_default_group end
@@ -118,6 +123,11 @@ end
 
 M.remove_buffer = function(buffer_name)
 	if not buffer_name or buffer_name == "" then return end
+
+	-- Avoid interfering with directory navigation
+	if vim.bo.filetype == "netrw" then
+		return
+	end
 
 	local group_index, buffer_index = get_group_from_buffer(buffer_name)
 	if not group_index or not buffer_index then return end
@@ -450,6 +460,11 @@ end
 M.buffer_render_tabline = function()
 	local buffer_name = get_buffer_name()
 	if not buffer_name then return end
+
+	-- Avoid interfering with directory navigation
+	if vim.bo.filetype == "netrw" then
+		return
+	end
 
 	-- Get active group from the current buffer
 	local group_index, _ = get_group_from_buffer(buffer_name)

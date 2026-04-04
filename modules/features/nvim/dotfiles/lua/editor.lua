@@ -71,7 +71,7 @@ return {
 	{                                        -- https://github.com/altermo/ultimate-autopair.nvim
 		"altermo/ultimate-autopair.nvim",
 		event = { "InsertEnter", "CmdlineEnter" }, -- defer
-		branch = "development",
+		branch = "v0.6",
 		opts = {
 			bs = { -- See: `:h ultimate-autopair-map-backspace-config`
 				-- Call the backspace logic from the config, instead of automap
