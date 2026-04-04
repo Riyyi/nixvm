@@ -1,10 +1,13 @@
-{ self, inputs, ... }:
 {
 
   flake.nixosModules.vmware =
-    { pkgs, lib, ... }:
+    { pkgs, ... }:
     {
       virtualisation.vmware.guest.enable = true;
+
+      system.activationScripts.vmware-share = ''
+        mkdir -p /mnt
+      '';
 
       systemd.services.vmware-share = {
         description = "VMware Shared Directory";
