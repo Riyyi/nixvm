@@ -13,7 +13,7 @@
         inherit system;
         config.allowUnfree = true;
         # TODO: Test if this actually applies overlays inside flake-part modules
-        #overlays = [ outputs.overlays.default ];
+        overlays = [ outputs.overlays.default ];
       };
     in
     {

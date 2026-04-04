@@ -20,7 +20,9 @@
         # Include the results of the hardware scan.
         self.nixosModules.base
         self.nixosModules.general
+        self.nixosModules.nix
 
+        self.nixosModules.firefox
         self.nixosModules.git
         self.nixosModules.niri
         self.nixosModules.nixosHardware
@@ -100,18 +102,6 @@
 
       # Enable touchpad support (enabled default in most desktopManager).
       # services.xserver.libinput.enable = true;
-
-      # Install firefox.
-      programs.firefox.enable = true;
-
-      # Allow unfree packages
-      nixpkgs.config.allowUnfree = true;
-
-      nix.settings.experimental-features = [
-        "nix-command"
-        "flakes"
-        "pipe-operators"
-      ];
 
       # List packages installed in system profile. To search, run:
       # $ nix search wget

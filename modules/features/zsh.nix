@@ -249,7 +249,7 @@
             if system != "x86_64-darwin" && system != "aarch64-darwin" then clean-nixos else clean-darwin;
 
           # Applications
-          mpv = "nohup mpv --idle --force-window >/dev/null 2>&1 &";
+          mpv-window = "nohup mpv --idle --force-window >/dev/null 2>&1 &";
           neofetch = "fastfetch -c neofetch";
         };
 

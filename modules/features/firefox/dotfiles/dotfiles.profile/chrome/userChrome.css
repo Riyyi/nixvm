@@ -1,0 +1,84 @@
+@-moz-document url(chrome://browser/content/browser.xhtml) {
+	/* Hide Firefox top tab bar */
+	#TabsToolbar {
+		display: none !important;
+	}
+
+	/* Remove titlebar */
+	#titlebar {
+		display: none;
+	}
+
+	/* Navigation bar color */
+	#nav-bar {
+		background: #2b2e39 !important;
+	}
+
+	/* Navigation bar buttons more compact */
+	#nav-bar toolbarbutton {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+	#nav-bar toolbarbutton#back-button {
+		padding-left: 6px !important;
+	}
+	#nav-bar toolbarbutton#PanelUI-menu-button {
+		padding-right: 6px !important;
+	}
+
+	/* Hide tracking protection icon */
+	#nav-bar #tracking-protection-icon-container {
+		display: none;
+	}
+
+	/* Hide TreeStyleTab header */
+	#sidebar-header {
+		display: none;
+	}
+
+	/* Hide TreeStyleTab splitter */
+	#sidebar-splitter {
+		display: none;
+	}
+
+	/* Url bar color */
+	#urlbar-background {
+		background: #404552 !important;
+		border-radius: 0;
+	}
+
+	/* Hide ... button in URL bar */
+	#urlbar #pageActionButton {
+		display: none;
+	}
+
+	#urlbar #pageActionSeparator {
+		display: none;
+	}
+
+	#urlbar[breakout-extend] #urlbar-input-container {
+		height: calc(var(--tab-min-height) - 3px) !important;
+		padding: 0px !important;
+	}
+
+	/* Clean up extra spacing at the top and bottom */
+	#urlbar-results {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
+	/* Compact results */
+	#urlbar-results .urlbarView {
+		margin: 0px !important;
+		width: 100% !important;
+	}
+
+	#urlbar-results .urlbarView-row {
+		padding: 0px !important;
+	}
+
+	/* Subtle border between results */
+	#urlbar-results .urlbarView-row:not(:last-of-type) {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+	}
+}
