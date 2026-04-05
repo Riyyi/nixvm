@@ -24,6 +24,7 @@
 
         self.nixosModules.firefox
         self.nixosModules.git
+        self.nixosModules.ghostty
         self.nixosModules.niri
         self.nixosModules.nixosHardware
         self.nixosModules.nvim
@@ -113,7 +114,6 @@
         evolution-data-server
         fastfetch
         firefox
-        ghostty
         git
         gnome-keyring
         htop

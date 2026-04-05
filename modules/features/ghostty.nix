@@ -1,6 +1,20 @@
 { self, inputs, ... }:
 {
 
+  flake.nixosModules.ghostty =
+    {
+      pkgs,
+      ...
+    }:
+    let
+      ghostty = self.packages.${pkgs.stdenv.hostPlatform.system}.ghostty;
+    in
+    {
+      environment.systemPackages = [
+        ghostty
+      ];
+    };
+
   perSystem =
     { pkgs, ... }:
     {
@@ -9,17 +23,20 @@
         (inputs.wrappers.wrapperModules.ghostty.apply {
           inherit pkgs;
 
+          # Point .desktop to the wrapped application
+          filesToPatch = [ "share/applications/*.desktop" ];
+
           settings = {
             app-notifications = "no-clipboard-copy";
             confirm-close-surface = false;
             copy-on-select = "clipboard";
             cursor-style-blink = false;
-            font-family = "NotoSansM Nerd Font Mono";
+            font-family = "DejaVuSansM Nerd Font Mono";
             font-feature = "-calt, -liga, -dlig"; # disable ligatures
-            font-size = 12;
+            font-size = 10;
             link-url = true;
             macos-titlebar-style = "hidden";
-            selection-invert-fg-bg = true;
+            selection-foreground = "cell-foreground";
             shell-integration-features = "no-cursor";
             term = "xterm-256color";
             theme = "noctalia";

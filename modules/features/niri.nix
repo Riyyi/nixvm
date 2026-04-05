@@ -36,7 +36,8 @@
       ...
     }:
     let
-      noctalia = lib.getExe self'.packages.noctalia-shell;
+      noctalia = lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia-shell;
+      ghostty = lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.ghostty;
     in
     {
       packages.niri = inputs.wrapper-modules.wrappers.niri.wrap {
@@ -69,7 +70,7 @@
             ##--- General ---##
 
             # Terminal
-            "Mod+Return".spawn-sh = lib.getExe pkgs.ghostty;
+            "Mod+Return".spawn-sh = ghostty;
 
             # App launcher
             "Mod+D".spawn-sh = "${noctalia} ipc call launcher toggle";
