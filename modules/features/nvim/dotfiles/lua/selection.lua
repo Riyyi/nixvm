@@ -3,7 +3,7 @@ return {
 	-- Fuzzy Finder (files, LSP, etc)
 	{
 		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
+		version = "*", -- latest tagged release
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			-- Fuzzy Finder Algorithm which requires local dependencies to be built.
