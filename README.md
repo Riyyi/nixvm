@@ -2,6 +2,13 @@
 
 Useful commands.
 
+## Bootstrap
+
+nix-shell -p git
+git clone "https://github.com/Riyyi/nixvm"
+cd nixvm
+sudo nixos-rebuild switch --option experimental-features 'nix-command flakes pipe-operators' --flake .#nixos
+
 ## Apply config
 
 sudo nixos-rebuild switch --flake .#nixos

@@ -6,7 +6,7 @@
       virtualisation.vmware.guest.enable = true;
 
       system.activationScripts.vmware-share = ''
-        mkdir -p /mnt
+        mkdir -p /mnt/share
       '';
 
       systemd.services.vmware-share = {
