@@ -2,11 +2,16 @@
 {
   flake.nixosModules.niri =
     {
+      config,
       pkgs,
       ...
     }:
     let
       niri = self.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+
+      user = config.preferences.user.name;
+      home = config.preferences.user.home;
+      dotfiles = config.preferences.path.dotfiles;
     in
     {
       programs.niri = {
@@ -32,7 +37,6 @@
     {
       pkgs,
       lib,
-      self',
       ...
     }:
     let
@@ -46,12 +50,18 @@
         v2-settings = true;
 
         settings = {
+
+          # Apply theme set in noctalia, cant work with live updating unfortunately
+          include = [ ./noctalia.kdl ];
+
           spawn-at-startup = [
             noctalia
           ];
 
-          environment = {
-            #QT_QPA_PLATFORMTHEME = "qt6ct";
+          # NOTE: Cursor settings are duplicated here and in theme.nix
+          cursor = {
+            xcursor-theme = "capitaine-cursors-white";
+            xcursor-size = 24;
           };
 
           prefer-no-csd = _: { };
@@ -198,7 +208,7 @@
             "Mod+Shift+Alt+Right".consume-or-expel-window-right = _: { };
 
             # Move floating window
-            #TODO
+            # TODO:
 
             #-- Resize --#
 
@@ -227,3 +237,4 @@
 # - https://github.com/vimjoyer/nixconf/blob/main/modules/wrappedPrograms/niri.nix
 # - https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl
 # - https://docs.noctalia.dev/getting-started/compositor-settings/niri/
+# - https://niri-wm.github.io/niri/Configuration%3A-Miscellaneous.html#cursor

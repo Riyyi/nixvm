@@ -22,6 +22,8 @@
         self.nixosModules.general
         self.nixosModules.nix
 
+        self.nixosModules.theme
+
         self.nixosModules.firefox
         self.nixosModules.git
         self.nixosModules.ghostty
@@ -107,7 +109,6 @@
       # List packages installed in system profile. To search, run:
       # $ nix search wget
       environment.systemPackages = with pkgs; [
-        adw-gtk3
         brightnessctl
         cliphist
         coreutils
@@ -119,9 +120,6 @@
         htop
         imagemagick
         jq
-        kdePackages.qt6ct
-        #kdePackages.xdg-desktop-portal-kde
-        libsForQt5.qt5ct
         mpv
         nerd-fonts.noto
         neovim
@@ -129,7 +127,6 @@
         nixfmt
         nixfmt-tree
         #ns
-        nwg-look
         open-vm-tools
         openssh
         power-profiles-daemon
