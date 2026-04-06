@@ -47,6 +47,9 @@
       packages.niri = inputs.wrapper-modules.wrappers.niri.wrap {
         inherit pkgs;
 
+        # Point .desktop to the wrapped application
+        filesToPatch = [ "share/wayland-sessions/*.desktop" ];
+
         v2-settings = true;
 
         settings = {

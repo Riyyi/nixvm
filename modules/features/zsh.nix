@@ -47,11 +47,11 @@
     let
       switch-nixos = "sudo nixos-rebuild switch --sudo --flake .#$HOST";
       update-nixos = "sudo nix flake update --flake . && switch";
-      clean-nixos = "sudo nix-env --delete-generations +5 --profile /nix/var/nix/profiles/system && nix-collect-garbage && nix-store --optimise && sudo nixos-rebuild boot";
+      clean-nixos = "sudo nix-env --delete-generations +5 --profile /nix/var/nix/profiles/system && nix-collect-garbage && nix-store --optimise";
 
       switch-darwin = "sudo darwin-rebuild switch --flake .#$HOST";
       update-darwin = "sudo nix flake update --flake . && switch";
-      clean-darwin = "sudo nix-env --delete-generations +5 --profile /nix/var/nix/profiles/system && sudo nix-collect-garbage && sudo nix-store --optimise --ignore-failures && switch";
+      clean-darwin = "sudo nix-env --delete-generations +5 --profile /nix/var/nix/profiles/system && sudo nix-collect-garbage && sudo nix-store --optimise --ignore-failures";
     in
     {
       packages.zsh = inputs.wrapper-modules.wrappers.zsh.wrap {
@@ -260,6 +260,7 @@
           export XDG_CACHE_HOME="$HOME/.cache"
           export XDG_CONFIG_HOME="$HOME/.config"
           export XDG_DATA_HOME="$HOME/.local/share"
+          export XDG_STATE_HOME="$HOME/.local/state"
           mkdir -p "$XDG_CACHE_HOME/zsh"
 
           # Editor
