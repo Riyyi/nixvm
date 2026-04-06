@@ -6,14 +6,23 @@
 {
   flake.nixosModules.zsh =
     {
+      config,
       lib,
       pkgs,
       ...
     }:
     let
-      zsh = self.packages.${pkgs.stdenv.hostPlatform.system}.zsh;
+      selfpkgs = self.packages.${pkgs.stdenv.hostPlatform.system};
+
+      user = config.preferences.user.name;
     in
     {
+      environment.systemPackages = with pkgs; [
+        selfpkgs.zsh
+        zsh-history-substring-search
+        zsh-syntax-highlighting
+      ];
+
       programs.zsh.enable = true;
 
       programs.zsh.syntaxHighlighting = {
@@ -31,11 +40,13 @@
 
       environment.pathsToLink = [ "/share/zsh" ];
 
-      environment.systemPackages = [
-        zsh
-        pkgs.zsh-history-substring-search
-        pkgs.zsh-syntax-highlighting
-      ];
+      hjem.users.${user} = {
+        files = {
+          ".config/wget/wgetrc".text = ''
+            hsts-file = ~/.cache/wget-hsts
+          '';
+        };
+      };
     };
 
   perSystem =
