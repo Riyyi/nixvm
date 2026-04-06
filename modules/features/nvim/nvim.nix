@@ -49,7 +49,8 @@
         gcc
         libgcc
         gnumake
-        neovim
+        stable.neovim
+        tree-sitter
       ];
 
       hjem.users.${user} = {

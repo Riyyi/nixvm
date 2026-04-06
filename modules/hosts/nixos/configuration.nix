@@ -116,7 +116,7 @@
         jq
         mpv
         nerd-fonts.noto
-        neovim
+        stable.neovim
         nixd
         nixfmt
         nixfmt-tree

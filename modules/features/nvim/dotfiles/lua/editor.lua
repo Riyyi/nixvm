@@ -12,6 +12,7 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
+		branch = "master", -- nvim 0.11 or lower only!
 		build = ":TSUpdate",
 		opts = {
 			ensure_installed = {

@@ -15,8 +15,8 @@ let
     #    directory = ../pkgs;
     #  });
 
-    unstable-packages = final: prev: {
-      unstable = import inputs.nixpkgs-unstable {
+    stable-packages = final: prev: {
+      stable = import inputs.nixpkgs-stable {
         system = final.stdenv.hostPlatform.system;
         config.allowUnfree = true;
         overlays = [ ];
