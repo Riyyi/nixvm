@@ -37,6 +37,11 @@
         papirus-icon-theme
       ];
 
+      fonts.packages = with pkgs; [
+        dejavu_fonts
+        nerd-fonts.dejavu-sans-mono
+      ];
+
       environment.variables = {
         GTK_THEME = "adw-gtk3";
 

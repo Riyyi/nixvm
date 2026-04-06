@@ -31,6 +31,18 @@
     {
       packages.noctalia-shell = inputs.wrapper-modules.wrappers.noctalia-shell.wrap {
         inherit pkgs;
+        extraPackages = with pkgs; [
+          brightnessctl
+          cliphist
+          evolution-data-server
+          imagemagick
+          power-profiles-daemon
+          python3
+          wlsunset
+          xdg-desktop-portal
+          xdg-desktop-portal-gtk
+          xdg-desktop-portal-gnome
+        ];
 
         settings = (builtins.fromJSON (builtins.readFile ./noctalia.json)).settings;
       };

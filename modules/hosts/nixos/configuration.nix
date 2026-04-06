@@ -9,31 +9,16 @@
 
   flake.nixosModules.hostNixos =
 
-    # Edit this configuration file to define what should be installed on
-    # your system.  Help is available in the configuration.nix(5) man page
-    # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-    { config, pkgs, ... }:
+    { pkgs, ... }:
 
     {
       imports = [
-        # Include the results of the hardware scan.
         self.nixosModules.base
         self.nixosModules.general
-        self.nixosModules.nix
+        self.nixosModules.desktop
 
-        self.nixosModules.theme
-        self.nixosModules.greeter
-
-        self.nixosModules.firefox
-        self.nixosModules.git
-        self.nixosModules.ghostty
-        self.nixosModules.niri
-        self.nixosModules.noctalia
         self.nixosModules.nixosHardware
-        self.nixosModules.nvim
         self.nixosModules.vmware
-        self.nixosModules.zsh
       ];
 
       # Bootloader.
@@ -100,43 +85,9 @@
       # Enable touchpad support (enabled default in most desktopManager).
       # services.xserver.libinput.enable = true;
 
-      # List packages installed in system profile. To search, run:
-      # $ nix search wget
       environment.systemPackages = with pkgs; [
-        brightnessctl
-        cliphist
-        coreutils
-        evolution-data-server
-        fastfetch
-        firefox
-        git
-        gnome-keyring
-        htop
-        imagemagick
-        jq
-        mpv
-        nerd-fonts.noto
         stable.neovim
-        nixd
-        nixfmt
-        nixfmt-tree
-        #ns
-        open-vm-tools
-        openssh
-        power-profiles-daemon
-        python3
-        ripgrep
-        rsync
-        tokei
-        tree
-        util-linux
-        wev
-        wget
-        wlsunset
-        xdg-desktop-portal
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-gnome
-        zsh
+        #ns  TODO:
       ];
 
       # Some programs need SUID wrappers, can be configured further or are

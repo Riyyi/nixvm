@@ -3,6 +3,10 @@
   flake.nixosModules.vmware =
     { pkgs, ... }:
     {
+      environment.systemPackages = with pkgs; [
+        open-vm-tools
+      ];
+
       virtualisation.vmware.guest.enable = true;
 
       system.activationScripts.vmware-share = ''
