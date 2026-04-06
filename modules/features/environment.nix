@@ -1,5 +1,7 @@
 { inputs, self, ... }:
 {
+  # Module for TTY purposes
+
   flake.nixosModules.environment = {
 
     imports = [
@@ -32,6 +34,7 @@
           nixd
           nixfmt
           nixfmt-tree
+          self'.packages.ns
           openssh
           ripgrep
           rsync

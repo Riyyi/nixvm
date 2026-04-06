@@ -1,5 +1,7 @@
 { self, ... }:
 {
+  # Module for generic stuff that every host needs
+
   flake.nixosModules.general =
     {
       config,
