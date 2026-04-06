@@ -1,6 +1,6 @@
 {
   "settings": {
-    "settingsVersion": 57,
+    "settingsVersion": 59,
     "bar": {
       "barType": "simple",
       "position": "top",
@@ -16,7 +16,6 @@
       "enableExclusionZoneInset": true,
       "backgroundOpacity": 0.93,
       "useSeparateOpacity": false,
-      "floating": false,
       "marginVertical": 4,
       "marginHorizontal": 4,
       "frameThickness": 8,
@@ -65,7 +64,7 @@
             "colorizeIcons": false,
             "hideMode": "hidden",
             "id": "ActiveWindow",
-            "maxWidth": 145,
+            "maxWidth": 300,
             "scrollingMode": "hover",
             "showIcon": true,
             "textColor": "none",
@@ -161,7 +160,7 @@
       "screenOverrides": []
     },
     "general": {
-      "avatarImage": "/home/rick/pictures/avatar.jpg",
+      "avatarImage": "/home/rick/Pictures/Wallpapers/avatar.jpg",
       "dimmerOpacity": 0.2,
       "showScreenCorners": false,
       "forceBlackScreenCorners": false,
@@ -192,7 +191,7 @@
       "autoStartAuth": false,
       "allowPasswordWithFprintd": false,
       "clockStyle": "custom",
-      "clockFormat": "hh\\nmmh:mm AP ",
+      "clockFormat": "hh:mm AP",
       "passwordChars": false,
       "lockScreenMonitors": [],
       "lockScreenBlur": 0,
@@ -238,7 +237,7 @@
       "settingsPanelSideBarCardStyle": false
     },
     "location": {
-      "name": "Amsterdam",
+      "name": "Rotterdam",
       "weatherEnabled": true,
       "weatherShowEffects": true,
       "useFahrenheit": false,
@@ -284,11 +283,19 @@
       "wallpaperChangeMode": "random",
       "randomIntervalSec": 300,
       "transitionDuration": 1500,
-      "transitionType": "random",
-      "skipStartupTransition": false,
+      "transitionType": [
+        "fade",
+        "disc",
+        "stripes",
+        "wipe",
+        "pixelate",
+        "honeycomb"
+      ],
+      "skipStartupTransition": true,
       "transitionEdgeSmoothness": 0.05,
       "panelPosition": "follow_bar",
       "hideWallpaperFilenames": false,
+      "useOriginalImages": false,
       "overviewBlur": 0.4,
       "overviewTint": 0.6,
       "useWallhaven": false,
@@ -310,11 +317,12 @@
       "autoPasteClipboard": false,
       "enableClipPreview": true,
       "clipboardWrapText": true,
+      "enableClipboardSmartIcons": true,
+      "enableClipboardChips": true,
       "clipboardWatchTextCommand": "wl-paste --type text --watch cliphist store",
       "clipboardWatchImageCommand": "wl-paste --type image --watch cliphist store",
       "position": "center",
       "pinnedApps": [],
-      "useApp2Unit": false,
       "sortByMostUsed": true,
       "terminalCommand": "ghostty --",
       "customLaunchPrefixEnabled": false,
@@ -426,6 +434,8 @@
       "colorizeIcons": false,
       "showLauncherIcon": false,
       "launcherPosition": "end",
+      "launcherUseDistroLogo": false,
+      "launcherIcon": "",
       "launcherIconColor": "none",
       "pinnedStatic": false,
       "inactiveIndicators": false,
@@ -442,7 +452,6 @@
       "indicatorOpacity": 0.6
     },
     "network": {
-      "wifiEnabled": true,
       "airplaneModeEnabled": false,
       "bluetoothRssiPollingEnabled": false,
       "bluetoothRssiPollIntervalMs": 60000,
@@ -569,6 +578,7 @@
       "volumeOverdrive": false,
       "spectrumFrameRate": 30,
       "visualizerType": "linear",
+      "spectrumMirrored": true,
       "mprisBlacklist": [],
       "preferredPlayer": "mpv",
       "volumeFeedback": false,
@@ -621,10 +631,12 @@
       "performanceModeEnabled": "",
       "performanceModeDisabled": "",
       "startup": "",
-      "session": ""
+      "session": "",
+      "colorGeneration": ""
     },
     "plugins": {
-      "autoUpdate": false
+      "autoUpdate": false,
+      "notifyUpdates": true
     },
     "idle": {
       "enabled": false,
@@ -656,7 +668,8 @@
     "lockScreenActive": false,
     "wallpapers": {
       "Virtual-1": "/home/rick/Pictures/Wallpapers/wallpaper.png",
-      "Virtual-2": "/home/rick/Pictures/Wallpapers/wallpaper.png"
+      "Virtual-2": "/home/rick/Pictures/Wallpapers/wallpaper.png",
+      "Virtual-3": "/home/rick/Pictures/Wallpapers/wallpaper.png"
     },
     "desktopWidgetsEditMode": false,
     "display": {
@@ -664,23 +677,23 @@
         "name": "Virtual-1",
         "connected": true,
         "scale": 1,
-        "width": 1918,
-        "height": 920,
+        "width": 1280,
+        "height": 800,
         "x": 0,
         "y": 0,
         "physical_width": 0,
         "physical_height": 0,
-        "refresh_rate": 59999,
+        "refresh_rate": 60000,
         "vrr_supported": false,
         "vrr_enabled": false,
         "transform": "Normal"
       }
     },
     "notificationsState": {
-      "lastSeenTs": 1774871595000
+      "lastSeenTs": 1775464073000
     },
     "changelogState": {
-      "lastSeenVersion": "v4.6.7"
+      "lastSeenVersion": "v4.7.1"
     },
     "colorSchemesList": {
       "schemes": [
@@ -963,6 +976,46 @@
           },
           "name": "Cyberpunk",
           "path": "Cyberpunk"
+        },
+        {
+          "dark": {
+            "mError": "#ff6b5a",
+            "mHover": "#2d3139",
+            "mOnError": "#1c1e1e",
+            "mOnHover": "#fffcf8",
+            "mOnPrimary": "#1c1e1e",
+            "mOnSecondary": "#1c1e1e",
+            "mOnSurface": "#fffcf8",
+            "mOnSurfaceVariant": "#bbc2cf",
+            "mOnTertiary": "#1c1e1e",
+            "mOutline": "#3f444a",
+            "mPrimary": "#51afef",
+            "mSecondary": "#f2c481",
+            "mShadow": "#111212",
+            "mSurface": "#1c1e1e",
+            "mSurfaceVariant": "#282c34",
+            "mTertiary": "#98be65"
+          },
+          "light": {
+            "mError": "#e45649",
+            "mHover": "#51afef",
+            "mOnError": "#fafafa",
+            "mOnHover": "#f0f0f0",
+            "mOnPrimary": "#fafafa",
+            "mOnSecondary": "#fafafa",
+            "mOnSurface": "#383a42",
+            "mOnSurfaceVariant": "#2e2e2e",
+            "mOnTertiary": "#fafafa",
+            "mOutline": "#c6c7c7",
+            "mPrimary": "#4078f2",
+            "mSecondary": "#ea9558",
+            "mShadow": "#f0f0f0",
+            "mSurface": "#f0f0f0",
+            "mSurfaceVariant": "#fafafa",
+            "mTertiary": "#50a14f"
+          },
+          "name": "Doomed",
+          "path": "Doomed"
         },
         {
           "dark": {
@@ -1985,7 +2038,7 @@
           "path": "Vesper"
         }
       ],
-      "timestamp": 1774869393
+      "timestamp": 1775421240
     },
     "ui": {
       "settingsSidebarExpanded": true

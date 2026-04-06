@@ -29,6 +29,7 @@
         self.nixosModules.git
         self.nixosModules.ghostty
         self.nixosModules.niri
+        self.nixosModules.noctalia
         self.nixosModules.nixosHardware
         self.nixosModules.nvim
         self.nixosModules.vmware
