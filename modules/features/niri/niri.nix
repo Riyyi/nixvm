@@ -8,10 +8,6 @@
     }:
     let
       niri = self.packages.${pkgs.stdenv.hostPlatform.system}.niri;
-
-      user = config.preferences.user.name;
-      home = config.preferences.user.home;
-      dotfiles = config.preferences.path.dotfiles;
     in
     {
       programs.niri = {
@@ -19,10 +15,7 @@
         package = niri;
       };
 
-      services = {
-        displayManager.sessionPackages = [ niri ];
-        gnome.gnome-keyring.enable = true;
-      };
+      services.displayManager.sessionPackages = [ niri ];
 
       systemd.packages = [ niri ];
 

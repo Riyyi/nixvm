@@ -6,6 +6,7 @@
 
       imports = [
         self.nixosModules.greeter
+        self.nixosModules.keyring
         self.nixosModules.theme
 
         self.nixosModules.firefox
@@ -16,12 +17,11 @@
 
       environment.systemPackages = with pkgs; [
         gedit
-        gnome-keyring
         imv
         kdePackages.kolourpaint
         mpv
         wev
-        xfce.thunar
+        thunar
       ];
 
     };
