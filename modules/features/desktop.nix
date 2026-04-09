@@ -13,15 +13,18 @@
         self.nixosModules.ghostty
         self.nixosModules.niri
         self.nixosModules.noctalia
+        self.nixosModules.vscode
       ];
 
       environment.systemPackages = with pkgs; [
         gedit
+        gvfs
         imv
         kdePackages.kolourpaint
         mpv
         wev
         thunar
+        thunar-volman
       ];
 
     };
