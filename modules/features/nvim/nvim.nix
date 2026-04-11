@@ -1,9 +1,8 @@
-{ rootPath, ... }:
+{ dot, ... }:
 {
   flake.nixosModules.nvim =
     {
       config,
-      lib,
       pkgs,
       ...
     }:
@@ -12,9 +11,7 @@
       home = config.preferences.user.home;
       dotfiles = config.preferences.path.dotfiles;
 
-      # Calculate the subdirectory directory from root this module is in
-      modDir = dirOf __curPos.file;
-      subDir = lib.strings.removePrefix (toString rootPath + "/") (toString modDir);
+      subDir = dot.subDir __curPos;
 
       files = [
         "init.lua"
@@ -72,8 +69,8 @@
 
       # lazy-lock.json wont be linked from Nix store, so it remains writable
       system.activationScripts.nvim = ''
-        ln -sf ${dotfiles}/${subDir}/dotfiles/lazy-lock.json \
-              "${home}/.config/nvim/lazy-lock.json"
+        ln -sf "${dotfiles}/${subDir}/dotfiles/lazy-lock.json" \
+               "${home}/.config/nvim/lazy-lock.json"
       '';
 
     };

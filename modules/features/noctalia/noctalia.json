@@ -55,7 +55,7 @@
             "showApplications": false,
             "showApplicationsHover": false,
             "showBadge": true,
-            "showLabelsOnlyWhenOccupied": true,
+            "showLabelsOnlyWhenOccupied": false,
             "unfocusedIconsOpacity": 1
           }
         ],
@@ -609,6 +609,10 @@
         {
           "enabled": true,
           "id": "gtk"
+        },
+        {
+          "enabled": true,
+          "id": "hyprland"
         }
       ],
       "enableUserTheming": false
@@ -690,7 +694,7 @@
       }
     },
     "notificationsState": {
-      "lastSeenTs": 1775464073000
+      "lastSeenTs": 1775918350000
     },
     "changelogState": {
       "lastSeenVersion": "v4.7.1"
@@ -2038,7 +2042,7 @@
           "path": "Vesper"
         }
       ],
-      "timestamp": 1775421240
+      "timestamp": 1775502738
     },
     "ui": {
       "settingsSidebarExpanded": true

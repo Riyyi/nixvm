@@ -2,7 +2,6 @@
 {
   flake.nixosModules.niri =
     {
-      config,
       pkgs,
       ...
     }:

@@ -11,6 +11,7 @@
 
         self.nixosModules.firefox
         self.nixosModules.ghostty
+        self.nixosModules.hyprland
         self.nixosModules.niri
         self.nixosModules.noctalia
         self.nixosModules.vscode
@@ -22,6 +23,7 @@
         imv
         kdePackages.kolourpaint
         mpv
+        opencode
         wev
         thunar
         thunar-volman
