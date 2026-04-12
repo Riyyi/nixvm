@@ -7,6 +7,10 @@
         open-vm-tools
       ];
 
+      hardware.graphics.enable = true;
+      hardware.graphics.enable32Bit = true;
+      services.xserver.videoDrivers = [ "vmware" ];
+
       virtualisation.vmware.guest.enable = true;
 
       system.activationScripts.vmware-share = ''

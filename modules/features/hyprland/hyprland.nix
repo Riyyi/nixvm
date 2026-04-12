@@ -91,9 +91,10 @@ in
                   "XCURSOR_SIZE,24"
                   "HYPRCURSOR_SIZE,24"
 
-                  "LIBGL_ALWAYS_SOFTWARE,1" # HACK: 3d accell is broken on Hyprland
+                  # HACK: 3D accel is broken on Hyprland
+                  "LIBGL_ALWAYS_SOFTWARE,1"
                   "WLR_RENDERER,pixman"
-
+                  "WLR_NO_HARDWARE_CURSORS,1"
                 ];
 
                 # ----------------------------
@@ -198,6 +199,22 @@ in
                 # Keybindings
 
                 bind = [
+                  # --- General --- #
+
+                  # Start terminal
+                  "${mod}, Return, exec, ${ghostty}"
+                  "${mod}, t, exec, ${lib.getExe pkgs.kdePackages.konsole}"
+
+                  # Start noctalia (program launcher)
+                  "${mod}, d, exec, ${noctalia} ipc call launcher toggle"
+
+                  # Lock screen
+                  "${mod}, c, exec, ${noctalia} ipc call lockScreen lock"
+
+                  # mpv"
+                  "${mod},	   m, exec, play"
+                  "${mod} SHIFT, m, exec, play queue"
+
                   # --- Control ---#
 
                   # Close Hyprland
@@ -228,7 +245,7 @@ in
                   "${mod}, up, movefocus, u"
                   "${mod}, down, movefocus, d"
 
-                  # Focus previous/next window"
+                  # Focus previous/next window
                   "${mod}, Tab, cyclenext"
                   "${mod} SHIFT, Tab, cyclenext, prev"
 
@@ -248,18 +265,18 @@ in
                   "${mod}, equal, workspace, e+1"
                   "${mod}, minus, workspace, e-1"
 
-                  # Focus last workspace"
+                  # Focus last workspace
                   "${mod}, GRAVE, focuscurrentorlast"
 
-                  # Focus previous/next monitor"
+                  # Focus previous/next monitor
                   # TODO"
 
-                  # Special workspace (scratchpad)"
+                  # Special workspace (scratchpad)
                   "${mod}, T, togglespecialworkspace, magic"
 
                   #-- Move --#
 
-                  # Send window to workspace"
+                  # Send window to workspace
                   "${mod} SHIFT, 1, movetoworkspacesilent, 1"
                   "${mod} SHIFT, 2, movetoworkspacesilent, 2"
                   "${mod} SHIFT, 3, movetoworkspacesilent, 3"
@@ -271,11 +288,11 @@ in
                   "${mod} SHIFT, 9, movetoworkspacesilent, 9"
                   "${mod} SHIFT, 0, movetoworkspacesilent, 10"
 
-                  # Move window to previous/next workspace"
+                  # Move window to previous/next workspace
                   "${mod} SHIFT, equal, movetoworkspace, e+1"
                   "${mod} SHIFT, minus, movetoworkspace, e-1"
 
-                  # Move window to previous/next monitor"
+                  # Move window to previous/next monitor
                   # TODO"
 
                   # Move floating window"
@@ -288,11 +305,11 @@ in
                   "Control_L Alt_L, up, moveactive, 0 -30"
                   "Control_L Alt_L, down, moveactive, 0 30"
 
-                  # Flip the tree from the current windows parent"
+                  # Flip the tree from the current windows parent
                   "${mod} Alt_L, 5, swapsplit,   # dwindle"
                   "${mod} Alt_L, 6, togglesplit, # dwindle"
 
-                  # Special workspace (scratchpad)"
+                  # Special workspace (scratchpad)
                   "${mod} SHIFT, T, movetoworkspace, special:magic"
 
                   #-- Resize --#
@@ -317,19 +334,6 @@ in
                   "${mod} Control_L, right, layoutmsg, preselect right"
                   "${mod} Control_L, up, layoutmsg, preselect up"
                   "${mod} Control_L, down, layoutmsg, preselect down"
-
-                  # --- General --- #
-
-                  # Start terminal
-                  "${mod}, Return, exec, ${ghostty}"
-                  "${mod}, t, exec, ${lib.getExe pkgs.kdePackages.konsole}"
-
-                  # Start noctalia (program launcher)
-                  "${mod}, d, exec, ${noctalia} ipc call launcher toggle"
-
-                  # mpv"
-                  "${mod},	   m, exec, play"
-                  "${mod} SHIFT, m, exec, play queue"
 
                   #--- Control, compositor agnostic ---#
 
@@ -371,6 +375,7 @@ in
                   "float true, match:class firefox, match:title Library"
                   "float true, match:class firefox, match:title ^About.*"
                   "float true, match:class thunar, match:title File Operation Progress"
+                  "float true, match:class thunar, match:title Rename .*"
                 ];
 
                 workspace = [

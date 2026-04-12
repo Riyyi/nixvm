@@ -67,6 +67,7 @@
             "maxWidth": 300,
             "scrollingMode": "hover",
             "showIcon": true,
+            "showText": true,
             "textColor": "none",
             "useFixedWidth": false
           },
@@ -220,7 +221,8 @@
           "Del"
         ]
       },
-      "reverseScroll": false
+      "reverseScroll": false,
+      "smoothScrollEnabled": true
     },
     "ui": {
       "fontDefault": "Noto Sans",
@@ -240,6 +242,7 @@
       "name": "Rotterdam",
       "weatherEnabled": true,
       "weatherShowEffects": true,
+      "weatherTaliaMascotAlways": false,
       "useFahrenheit": false,
       "use12hourFormat": true,
       "showWeekNumberInCalendar": true,
@@ -248,7 +251,8 @@
       "analogClockInCalendar": false,
       "firstDayOfWeek": 1,
       "hideWeatherTimezone": false,
-      "hideWeatherCityName": false
+      "hideWeatherCityName": false,
+      "autoLocate": false
     },
     "calendar": {
       "cards": [
@@ -275,6 +279,7 @@
       "showHiddenFiles": false,
       "viewMode": "recursive",
       "setWallpaperOnAllMonitors": true,
+      "linkLightAndDarkWallpapers": true,
       "fillMode": "repeat",
       "fillColor": "#000000",
       "useSolidColor": false,
@@ -452,7 +457,6 @@
       "indicatorOpacity": 0.6
     },
     "network": {
-      "airplaneModeEnabled": false,
       "bluetoothRssiPollingEnabled": false,
       "bluetoothRssiPollIntervalMs": 60000,
       "networkPanelView": "wifi",
@@ -598,7 +602,8 @@
       "manualSunrise": "06:30",
       "manualSunset": "18:30",
       "generationMethod": "tonal-spot",
-      "monitorForColors": ""
+      "monitorForColors": "",
+      "syncGsettings": true
     },
     "templates": {
       "activeTemplates": [
@@ -613,6 +618,10 @@
         {
           "enabled": true,
           "id": "hyprland"
+        },
+        {
+          "enabled": true,
+          "id": "mango"
         }
       ],
       "enableUserTheming": false
@@ -697,7 +706,7 @@
       "lastSeenTs": 1775918350000
     },
     "changelogState": {
-      "lastSeenVersion": "v4.7.1"
+      "lastSeenVersion": "v4.7.5"
     },
     "colorSchemesList": {
       "schemes": [

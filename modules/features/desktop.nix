@@ -12,6 +12,7 @@
         self.nixosModules.firefox
         self.nixosModules.ghostty
         self.nixosModules.hyprland
+        self.nixosModules.mangowc
         self.nixosModules.niri
         self.nixosModules.noctalia
         self.nixosModules.vscode
@@ -27,6 +28,7 @@
         wev
         thunar
         thunar-volman
+        wayland-utils
       ];
 
     };
